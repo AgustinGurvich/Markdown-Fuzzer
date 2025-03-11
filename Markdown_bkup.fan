@@ -14,6 +14,6 @@ fake.add_provider(lorem)
 <links> ::= "[" <content> "]" "(" <url> ")"
 <url> ::= <aux> := fake.url()
 <text> ::= "_" <content> "_" | "__" <content> "__" | "*" <content> "*" | "**" <content> "**"
-<content> ::= <letter>+ | <digit>+
-<letter> ::= <aux> := fake.word()
+<content> ::= <word>+ | <digit>+
+<word> ::= <aux> := fake.sentence()
 

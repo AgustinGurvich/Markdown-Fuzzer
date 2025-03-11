@@ -12,5 +12,6 @@ COPY . /app
 
 # Install Python dependencies (optional)
 RUN pip install --no-cache-dir fandango-fuzzer
+RUN pip install --no-cache-dir faker
 
 CMD ["/bin/bash"]

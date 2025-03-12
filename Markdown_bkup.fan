@@ -5,15 +5,21 @@ fake = Faker()
 fake.add_provider(internet)
 fake.add_provider(lorem)
 
+include('agronomics.fan')
+include('references.fan')
+
 <aux> ::= <printable>+
 
 <start> ::= <body>
-<body> ::= <header> | <subheader> | <links> | <text>
-<header> ::= "# " <text>
+# <body> ::= <header> <reference> | <subheader> | <links> | <text>
+<body> ::= (<paragraph> "\n")+
+<paragraph> ::= <header> "\n" <subheader> "\n" (<content> "\n")+
+<header> ::= "# " <title>
 <subheader> ::= "## " <text>
-<links> ::= "[" <content> "]" "(" <url> ")"
-<url> ::= <aux> := fake.url()
-<text> ::= "_" <content> "_" | "__" <content> "__" | "*" <content> "*" | "**" <content> "**"
-<content> ::= <word>+ | <digit>+
-<word> ::= <aux> := fake.sentence()
-
+#<links> ::= "[" <text> "]" "(" <url> ")"
+#<url> ::= <aux> := fake.url()
+<content> ::= <connections> | <text>
+<text> ::= "_" <phrase> "_" | "__" <phrase> "__" | "*" <phrase> "*" | "**" <phrase> "**" | "As said in " <reference>
+#<word> ::= <aux> := fake.word()
+<title> ::= <aux> := generate_title()
+<reference> ::= <printable>+ := generate_reference()

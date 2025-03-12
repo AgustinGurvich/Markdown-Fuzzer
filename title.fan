@@ -34,9 +34,9 @@ def gen_method() -> str:
     return random.choice(METHODS)
 
 
-<start> ::= <title> " 💃"
+<title> ::= <title_content> " 💃"
 
-<title> ::= <descriptive> | <problem_solution> | <interdisciplinary> | <methodological>
+<title_content> ::= <descriptive> | <problem_solution> | <interdisciplinary> | <methodological>
 
 <descriptive> ::= <tech> " for " <application> " in " <engineering_field>
 <problem_solution> ::= "Addressing " <problem> " using " <solution> " in " <engineering_field>

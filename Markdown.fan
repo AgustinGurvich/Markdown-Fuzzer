@@ -5,15 +5,16 @@ fake = Faker()
 fake.add_provider(internet)
 fake.add_provider(lorem)
 
-<aux> ::= <printable>+
+include('title.fan')
 
-<start> ::= <body>
-<body> ::= <header> | <subheader> | <links> | <text>
+<start> ::= <title> "\n" <block>+
+<block> ::= <headers> "\n" <body> "\n"
+<body> ::= <links> | <text>
+<headers> ::= <header> | <subheader>
 <header> ::= "# " <text>
 <subheader> ::= "## " <text>
 <links> ::= "[" <content> "]" "(" <url> ")"
-<url> ::= <aux> := fake.url()
+<url> ::= <printable>+ := fake.url()
 <text> ::= "_" <content> "_" | "__" <content> "__" | "*" <content> "*" | "**" <content> "**"
 <content> ::= <word>+ | <digit>+
-<word> ::= <aux> := fake.sentence()
-
+<word> ::= <printable>+ := fake.sentence()

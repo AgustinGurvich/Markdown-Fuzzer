@@ -22,7 +22,7 @@ def citacion():
     
     # Generate institution
     place = fake.city()
-    institution = random.choice(INSTITUTIONS) + place
+    institution = random.choice(INSTITUTIONS) + " " + place
     
     # Generate a book title
     book_title = "The " + fake.word().capitalize() + " Book"

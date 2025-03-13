@@ -1,6 +1,6 @@
 <empty> ::= ""
 
-<start> ::= " $$ " <func> " $$ "
+<math> ::= " $$ " <func> " $$ "
 
 <func> ::= "\\sin(" <expr> ")"  
          | "\\cos(" <expr> ")"  
@@ -14,14 +14,14 @@
 <expr_aux> ::= <empty> | <expr_op> <expr_aux>
 <expr_op> ::= "+" <term> | "-" <term>
 
-<term> ::= <factor> <term_aux>  
-<term_aux> ::= <empty> | "*" <factor> <term_aux>  
-            | " \\frac{" <factor> "}{" <factor> "} " <term_aux>
+<term> ::= <math_factor> <term_aux>  
+<term_aux> ::= <empty> | "*" <math_factor> <term_aux>  
+            | " \\frac{" <math_factor> "}{" <math_factor> "} " <term_aux>
 
-<power> ::= <factor> <power_aux>
+<power> ::= <math_factor> <power_aux>
 <power_aux> ::= <empty> | "^{" <power> "}"
 
-<factor> ::= <atomic> | "(" <func> ")"  
+<math_factor> ::= <atomic> | "(" <func> ")"  
 <atomic> ::= <nat> | <var> | <const>
 <var> ::= "x" | "y" | "z" | "a" | "b" | "c" | "k" | "i" | "j"
 <nat> ::= <digit>+

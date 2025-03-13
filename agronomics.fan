@@ -5,13 +5,17 @@
                 | "It is important to note that " <phrase> " and " <phrase>
                 | "In addition, " <phrase> " and " <phrase>
                 | "Moreover, " <phrase> " and " <phrase>
-<phrase> ::= <citation> | <definition> | <statement> | <caveat> | <analysis> | <experiment>
+<phrase> ::= <agro_citation> | <definition> | <statement> | <caveat> | <analysis> | <experiment> | <reference>
 
 <person> ::= <printable>+ := fake.last_name()
-<title> ::= "Dr. " | "Phd. " | "Mr. " | "Mrs. " | "Prof. " 
+<agro_title> ::= "Dr. " | "Phd. " | "Mr. " | "Mrs. " | "Prof. " 
 <thing> ::= "A crop field" | "Pesticide distribution" | "Droplet size"  | "Weed coverage" | "Herbicide effectiveness" | "Spray pattern" 
 
-<citation> ::= "As " <title> <person> " states: " "__" <statement> "__ " | "Like " <title> <person> " once said: " "__" <statement> "__. " | "According to " <title> <person> ", " "__" <statement> "__" 
+<reference> ::= "As seen in section " <ref_link> | "Per what was said in " <ref_link> | "In reference of " <ref_link>
+
+<ref_link> ::= <printable>+ := generate_reference()
+
+<agro_citation> ::= "As " <agro_title> <person> " states: " "__" <statement> "__ " | "Like " <agro_title> <person> " once said: " "__" <statement> "__. " | "According to " <agro_title> <person> ", " "__" <statement> "__" 
 <statement> ::= <scientific_claim> | <observation> | <comparison> | <hypothesis>
 
 <scientific_claim> ::= "Pulverization efficiency is directly proportional to nozzle diameter."  

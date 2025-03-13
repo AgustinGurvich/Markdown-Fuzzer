@@ -6,8 +6,8 @@ weed_types = ["dandelions", "thistles", "wild oats", "pigweed", "bindweed"]
 detection_methods = ["AI-based", "drone-assisted", "satellite imagery", "camera monitoring", "sensor-equipped machines"]
 
 def get_image_path() -> str:
-    images = os.listdir("images")
-    return "images/" + str(random.choice(images))
+    images = os.listdir("imgs")
+    return "imgs/" + str(random.choice(images))
 
 def get_image_title() -> str:
     crop = random.choice(crop_types)

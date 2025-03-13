@@ -36,4 +36,4 @@ def citacion():
 
     return citation + "\n" + footnote
 
-<start> ::= <printable>+ := citacion() 
+<citation> ::= <printable>+ := citacion() 

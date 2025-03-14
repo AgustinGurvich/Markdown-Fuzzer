@@ -22,7 +22,13 @@ include('citacions.fan')
 <header_phrase> ::= <printable>+ := generate_title()
 
 <body> ::= <text>+
-<text> ::= <phrase> | <connections> | <emphasis> | <table> | <math> | <image>
+<text> ::= <table_setting> | <math_setting> | <phrase> | <connections> | <emphasis> | | <image>
+<table_setting> ::= "As we can see in the following table: \n \n" <table> "\n" 
+                | "The table below shows the results of the experiment: \n \n" <table> "\n"
+                | "The following table displays the data collected: \n \n" <table> "\n"
+<math_setting> ::= "The mathematical model is defined as follows: " <math> "\n"
+                | "The equation is given by: " <math> "\n"
+                | "The formula is expressed as: " <math> "\n"
 <emphasis> ::= "_" <phrase> "_" | "__" <phrase> "__" | "*" <phrase> "*" | "**" <phrase> "**" | <link>
 <link> ::= "[" <phrase> "]" "(" <url> ")"
 <url> ::= <printable>+ := fake.url()

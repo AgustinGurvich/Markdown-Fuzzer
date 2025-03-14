@@ -10,7 +10,7 @@ def generate_title():
     global LABELS
     title = fake.sentence()
     LABELS.append(title)
-    return title
+    return title + "\n"
 
 def generate_reference() -> str:
     if len(LABELS) == 0:

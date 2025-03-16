@@ -1,3 +1,4 @@
+# This file covers tasks 4 and 5
 import random
 
 COLS_NUMBER = 1
@@ -30,3 +31,9 @@ def delim_gen() -> str:
 <columns> ::= (" " <table_number> " |")+
 <table_number> ::= <digit>+
 where 10 <= int(<table_number>) and int(<table_number>) <= 1000
+
+<table_setting> ::= "As we can see in the following table: \n \n" <table> "\n" 
+                | "The table below shows the results of the experiment: \n \n" <table> "\n"
+                | "The following table displays the data collected: \n \n" <table> "\n"
+                | "The table presents the values obtained: \n \n" <table> "\n"
+                | "The results are summarized in the table below: \n \n" <table> "\n"

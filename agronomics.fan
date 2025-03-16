@@ -1,3 +1,4 @@
+# This file covers Task 3
 <connections> ::= <phrase> " We can see as well that " <phrase> 
                 | <phrase> " This is also shown by " <phrase>
                 | "It is possible to see that " <phrase> " Furthermore, " <phrase>
@@ -11,7 +12,11 @@
 <agro_title> ::= "Dr. " | "Phd. " | "Mr. " | "Mrs. " | "Prof. " 
 <thing> ::= "A crop field" | "Pesticide distribution" | "Droplet size"  | "Weed coverage" | "Herbicide effectiveness" | "Spray pattern" 
 
-<reference> ::= "As seen in section " <ref_link> | "Per what was said in " <ref_link> | "In reference of " <ref_link>
+<reference> ::= "As seen in section " <ref_link> 
+            | "Per what was said in " <ref_link> 
+            | "In reference of " <ref_link>
+            | "In the context of " <ref_link>
+            | "Going back to " <ref_link>
 
 <ref_link> ::= <printable>+ := generate_reference()
 

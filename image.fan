@@ -1,3 +1,4 @@
+# Bonus track: mock images
 import random
 import os
 

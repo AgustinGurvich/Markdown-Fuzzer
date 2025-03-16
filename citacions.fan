@@ -1,3 +1,5 @@
+# This file covers task 8
+
 from faker import Faker
 import random
 

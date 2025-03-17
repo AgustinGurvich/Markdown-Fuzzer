@@ -1,41 +1,35 @@
 # This file covers task 8
-
 from faker import Faker
 import random
 
 fake = Faker()
 
 # Institution formats
-INSTITUTIONS = ["University of ", "Institute of ", "College of ", " State University", " Research Institute"]
+INSTITUTIONS = ["University of", "Institute of", "College of", " State University", " Research Institute"]
 
-def citacion():
-    num_authors = random.randint(1, 3)
-    
-    # Generate author names
+def citation():
     authors = []
-    for i in range(num_authors):
-        authors += [fake.last_name()]
+    random_int = fake.random_int(1, 4)
+    for i in range(random_int):
+        authors.append(fake.last_name())
+    first_author = authors[0]
+    if len(authors) > 1:
+        first_author += " et al."
     
-    # Main author formatting
-    if num_authors > 1:
-        author_str = authors[0] + " et al."
-    else:
-        author_str = authors[0]
-    
-    # Generate institution
     place = fake.city()
     institution = random.choice(INSTITUTIONS) + " " + place
-    
-    # Generate a book title
+
     book_title = "The " + fake.word().capitalize() + " Book"
-    
-    # Generate a publication year
-    year = random.randint(1990, 2025)
-    
-    # Construct citation and footnote
-    citation = author_str + " from " + institution + " introduced " + book_title + ".[^1]\n"
-    footnote = "[^1]: " + ", ".join(authors) + ": " + book_title + ", " + str(year) + ", " + institution
 
-    return citation + "\n" + footnote
+    text = "[" + first_author + " from " + institution + " introduced " + book_title + "]" + "[^1]\n"
+    
+    footnote = "[^1]: " + "[" + " ,".join(authors) + " : " + institution + ". " + book_title + "]" 
 
-<citation> ::= <printable>+ := citacion() 
+    return text + "\n" + footnote
+
+
+
+<start> ::= <citation> <year>
+<citation> ::= <printable>+ := citation()
+<year> ::= <digit>+
+
